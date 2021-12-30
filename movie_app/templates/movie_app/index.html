@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'movie_app/css/index.css' %}">
+{% endblock %}
+
+{% block title %}Main page{% endblock %}
+
+{% block content %}
+<h1>{{hello}}</h1>
+{% endblock %}
