@@ -9,4 +9,9 @@
 
 {% block content %}
 <h1>{{hello}}</h1>
+<ul>
+    {% for movie in movies %}
+        <li>{{movie.name}}, rating- {{movie.rating}}, year- {{movie.year|default:'Unknown'}}</li>
+    {% endfor %}
+</ul>
 {% endblock %}
