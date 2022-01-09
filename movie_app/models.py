@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Models(models.Model):
     name = models.CharField(max_length=40)
@@ -6,8 +7,11 @@ class Models(models.Model):
     year = models.IntegerField(null=True)
     sum_money = models.IntegerField(default=1000000)
 
+    def get_url(self):
+        return reverse('url_detail', args=[self.id])
+
     def __str__(self):
-        return f'{self.name} - ({self.rating}% - {self.year}year - {self.sum_money} money)'
+        return f'{self.name} - (rating: {self.rating}% - {self.year}year - {self.sum_money} money)'
 
 # ссылка на БД https://sqlitebrowser.org/dl/
 # в файле models создаем класс

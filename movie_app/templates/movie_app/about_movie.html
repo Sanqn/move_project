@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'movie_app/css/index.css' %}">
+{% endblock %}
+
+{% block title %}About movie - {{movie.name}} {% endblock %}
+
+{% block content %}
+<h2>{{about}} {{movie.name}}</h2>
+<h3>Movie - {{movie.name}}</h3>
+<h3>Rating - {{movie.rating}}%</h3>
+<h3>Year - {{movie.year}}</h3>
+{% endblock %}
