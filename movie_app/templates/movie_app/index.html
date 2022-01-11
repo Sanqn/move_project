@@ -12,7 +12,11 @@
 <ul>
     {% for movie in movies %}
 <!--        <li><a href="{% url 'url_detail' movie.id %}">{{movie.name}}</a>, rating- {{movie.rating}}, year- {{movie.year|default:'Unknown'}}</li>-->
-        <li><a href="{{movie.get_url}}">{{movie.name}}</a>, rating- {{movie.rating}}, year- {{movie.year|default:'Unknown'}}</li>
+        <li><a href="{{movie.get_url}}">{{movie.name}}</a>,
+            rating- {{movie.rating}},
+            money - {{movie.sum_money}},
+            year- {{movie.year|default:'Unknown'}}
+        </li>
     {% endfor %}
 </ul>
 {% endblock %}

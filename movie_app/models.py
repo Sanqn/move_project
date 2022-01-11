@@ -1,14 +1,22 @@
 from django.db import models
+from django.utils.text import slugify
 from django.urls import reverse
+
+
 
 class Models(models.Model):
     name = models.CharField(max_length=40)
     rating = models.IntegerField()
     year = models.IntegerField(null=True)
     sum_money = models.IntegerField(default=1000000)
+    slug = models.SlugField(default='', null=False)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Models, self).save(*args, **kwargs)
 
     def get_url(self):
-        return reverse('url_detail', args=[self.id])
+        return reverse('url_detail', args=[self.slug])
 
     def __str__(self):
         return f'{self.name} - (rating: {self.rating}% - {self.year}year - {self.sum_money} money)'
